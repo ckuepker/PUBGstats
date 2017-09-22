@@ -6,7 +6,18 @@
         xmlns:local="clr-namespace:PUBGstats"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="50"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="20"></RowDefinition>
+    </Grid.RowDefinitions>
+    <StackPanel Grid.Row="0" Orientation="Horizontal" Name="Toolbar">
+      <Button Command="{Binding AddMatchCommand}">Add</Button>
+    </StackPanel>
+    <ContentPresenter Grid.Row="1" Content="{Binding SelectedContent}"></ContentPresenter>
+    <StackPanel Grid.Row="2" Orientation="Horizontal">
+      <TextBlock Name="SeasonTextBlock" Text="{Binding CurrentSeason}" />
+    </StackPanel>
+  </Grid>
 </Window>
