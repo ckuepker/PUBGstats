@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace PUBGstats.ViewModel
 {
-  public class ViewModelBase : IViewModelBase
+  public abstract class ViewModelBase : IViewModelBase
   {
     public event PropertyChangedEventHandler PropertyChanged;
 

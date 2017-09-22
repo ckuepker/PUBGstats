@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBGstats", "PUBGstats\PUBG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBGstats.ViewModel", "PUBGstats.ViewModel\PUBGstats.ViewModel.csproj", "{BA6F21B4-AA22-4A3C-9718-6BFB78E70860}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBGMatch", "PUBGMatch\PUBGMatch.csproj", "{5E93E1D1-5D08-45EE-B2EE-A57C259CAD96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BA6F21B4-AA22-4A3C-9718-6BFB78E70860}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA6F21B4-AA22-4A3C-9718-6BFB78E70860}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA6F21B4-AA22-4A3C-9718-6BFB78E70860}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E93E1D1-5D08-45EE-B2EE-A57C259CAD96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E93E1D1-5D08-45EE-B2EE-A57C259CAD96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E93E1D1-5D08-45EE-B2EE-A57C259CAD96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E93E1D1-5D08-45EE-B2EE-A57C259CAD96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,9 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PUBGstats"
+        xmlns:viewModel="clr-namespace:PUBGstats.ViewModel;assembly=PUBGstats.ViewModel"
         mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance viewModel:MainWindowViewModel}"
         Title="MainWindow" Height="350" Width="525">
+  <Window.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Templates\DataTemplates.xaml"></ResourceDictionary>
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Window.Resources>
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="50"></RowDefinition>
@@ -14,6 +22,9 @@
     </Grid.RowDefinitions>
     <StackPanel Grid.Row="0" Orientation="Horizontal" Name="Toolbar">
       <Button Command="{Binding AddMatchCommand}">Add</Button>
+      <Popup IsOpen="{Binding IsAddingMatch}">
+        <ContentPresenter Content="{Binding AddMatchViewModel}"></ContentPresenter>
+      </Popup>
     </StackPanel>
     <ContentPresenter Grid.Row="1" Content="{Binding SelectedContent}"></ContentPresenter>
     <StackPanel Grid.Row="2" Orientation="Horizontal">

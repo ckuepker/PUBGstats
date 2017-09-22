@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewModel="clr-namespace:PUBGstats.ViewModel;assembly=PUBGstats.ViewModel">
+  <DataTemplate DataType="viewModel:AddMatchViewModel">
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="20"></RowDefinition>
+        <RowDefinition Height="20"></RowDefinition>
+        <RowDefinition Height="20"></RowDefinition>
+        <RowDefinition Height="20"></RowDefinition>
+        <RowDefinition Height="50"></RowDefinition>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="100"></ColumnDefinition>
+        <ColumnDefinition Width="200"></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      <ComboBox Name="ModeComboBox" SelectedItem="{Binding GameMode}" Grid.Row="0" Grid.Column="0"></ComboBox>
+      <ComboBox Name="PerspectiveComboBox" SelectedItem="{Binding GamePerspective}" Grid.Row="0" Grid.Column="1"></ComboBox>
+      <TextBlock Name="KillCountLabel"  Grid.Column="0" Grid.Row="1">Kills</TextBlock>
+      <TextBox Name="KillCountTextBox" Text="{Binding KillCount}" Grid.Column="1" Grid.Row="1"></TextBox>
+      
+      <TextBlock Name="RankLabel"  Grid.Column="0" Grid.Row="2">Rank</TextBlock>
+      <TextBox Name="RankTextBox" Text="{Binding Rank}" Grid.Column="1" Grid.Row="2"></TextBox>
+      
+      <TextBlock Name="ScoreLabel"  Grid.Column="0" Grid.Row="3">Score</TextBlock>
+      <TextBox Name="ScoreTextBox" Text="{Binding Score}" Grid.Column="1" Grid.Row="3"></TextBox>
+      
+      <Button Command="{Binding StoreCommand}" Grid.Row="4" Grid.ColumnSpan="2">Save</Button>
+    </Grid>
+  </DataTemplate>
+</ResourceDictionary>
