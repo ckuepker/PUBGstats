@@ -13,5 +13,10 @@ namespace PUBGstats
       InitializeComponent();
       DataContext = new MainWindowViewModel();
     }
+
+    private void ShowAddPopupButton_OnClick(object sender, RoutedEventArgs e)
+    {
+      AddPopup.IsOpen = true;
+    }
   }
 }
