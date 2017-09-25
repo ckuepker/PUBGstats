@@ -7,7 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBGstats", "PUBGstats\PUBG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBGstats.ViewModel", "PUBGstats.ViewModel\PUBGstats.ViewModel.csproj", "{BA6F21B4-AA22-4A3C-9718-6BFB78E70860}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBGMatch", "PUBGMatch\PUBGMatch.csproj", "{5E93E1D1-5D08-45EE-B2EE-A57C259CAD96}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBGstats.Match", "PUBGMatch\PUBGstats.Match.csproj", "{5E93E1D1-5D08-45EE-B2EE-A57C259CAD96}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{110C2829-CC12-4FAB-8405-07FABFD39FAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBGstats.Match.IO", "PUBGstats.Match.IO\PUBGstats.Match.IO.csproj", "{CBBAC626-94E4-485C-B3C7-A1E18800BB99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBGstats.Match.IO.Test", "PUBGstats.Match.IO.Test\PUBGstats.Match.IO.Test.csproj", "{EF2B636B-5978-4F76-984D-3F2D3096FB56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +33,19 @@ Global
 		{5E93E1D1-5D08-45EE-B2EE-A57C259CAD96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E93E1D1-5D08-45EE-B2EE-A57C259CAD96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E93E1D1-5D08-45EE-B2EE-A57C259CAD96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBBAC626-94E4-485C-B3C7-A1E18800BB99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBBAC626-94E4-485C-B3C7-A1E18800BB99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBBAC626-94E4-485C-B3C7-A1E18800BB99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBBAC626-94E4-485C-B3C7-A1E18800BB99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF2B636B-5978-4F76-984D-3F2D3096FB56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF2B636B-5978-4F76-984D-3F2D3096FB56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF2B636B-5978-4F76-984D-3F2D3096FB56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF2B636B-5978-4F76-984D-3F2D3096FB56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EF2B636B-5978-4F76-984D-3F2D3096FB56} = {110C2829-CC12-4FAB-8405-07FABFD39FAA}
 	EndGlobalSection
 EndGlobal

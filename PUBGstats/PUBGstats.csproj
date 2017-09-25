@@ -100,9 +100,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PUBGMatch\PUBGMatch.csproj">
+    <ProjectReference Include="..\PUBGMatch\PUBGstats.Match.csproj">
       <Project>{5e93e1d1-5d08-45ee-b2ee-a57c259cad96}</Project>
-      <Name>PUBGMatch</Name>
+      <Name>PUBGstats.Match</Name>
     </ProjectReference>
     <ProjectReference Include="..\PUBGstats.ViewModel\PUBGstats.ViewModel.csproj">
       <Project>{BA6F21B4-AA22-4A3C-9718-6BFB78E70860}</Project>

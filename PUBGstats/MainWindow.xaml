@@ -22,8 +22,8 @@
     </Grid.RowDefinitions>
     <StackPanel Grid.Row="0" Orientation="Horizontal" Name="Toolbar">
       <Button Name="ShowAddPopupButton" Click="ShowAddPopupButton_OnClick">Add</Button>
-      <Popup Name="AddPopup" StaysOpen="False" 
-             Width="300" Height="130" Placement="Bottom" AllowsTransparency="True">
+      <Popup Name="AddPopup" StaysOpen="False"
+             Width="310" Height="140" Placement="Bottom" AllowsTransparency="True">
         <ContentPresenter Content="{Binding AddMatchViewModel}"></ContentPresenter>
       </Popup>
     </StackPanel>
