@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using PUBGMatch;
 
 namespace PUBGstats.Match.IO.Test
 {
@@ -8,7 +9,7 @@ namespace PUBGstats.Match.IO.Test
     public void TestCreatesMatchFromValidLine()
     {
       string csvInput = "1,,,0,100,,,\"0,00\",\"100,00\",AFK,";
-      var sut = new CsvImporter();
+      var sut = new CsvImporter(Mode.Duo, Perspective.FPP);
       IMatch m = sut.Import(csvInput);
       Assert.AreEqual(1, m.Id);
       Assert.AreEqual(0, m.Kills);

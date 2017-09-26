@@ -40,7 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder\IMatchBuilder.cs" />
+    <Compile Include="Builder\MatchBuilder.cs" />
     <Compile Include="IMatch.cs" />
+    <Compile Include="Match.cs" />
     <Compile Include="Mode.cs" />
     <Compile Include="Perspective.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
