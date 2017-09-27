@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,5 +17,8 @@ namespace PUBGstats.Match.Builder
     IMatchBuilder WithRank(int rank);
     IMatchBuilder WithRating(int rating);
     IMatchBuilder WithDeathCause(string cause);
+    IMatchBuilder WithId(int id);
+    IMatchBuilder WithLesson(string lesson);
+    IMatchBuilder WithDate(DateTime? date);
   }
 }

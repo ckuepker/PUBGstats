@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using PUBGstats.Match;
 using PUBGstats.Match.Builder;
 
@@ -27,9 +28,89 @@ namespace PUBGstats.Match.Test
     }
 
     [Test]
-    public void TestId()
+    public void TestWithoutDeathCause()
     {
-      Assert.Fail("Not implemented");
+      var m = GetMinimalBuilder().Build();
+      Assert.AreEqual(string.Empty, m.DeathCause);
+    }
+
+    [Test]
+    public void TestWithId()
+    {
+      var m = GetMinimalBuilder().WithId(147).Build();
+      Assert.AreEqual(147, m.Id);
+    }
+
+    [Test]
+    public void TestWithoutId()
+    {
+      var m = GetMinimalBuilder().Build();
+      Assert.AreEqual(-1, m.Id);
+    }
+
+    [Test]
+    public void TestWithPerspective()
+    {
+      var sut = GetMinimalBuilder(0, 0, 0);
+      var m = sut.WithPerspective(GamePerspective.TPP).Build();
+      Assert.AreEqual(GamePerspective.TPP, m.Perspective);
+    }
+
+    [Test]
+    public void TestWithoutPerspective()
+    {
+      var sut = GetMinimalBuilder(0, 0, 0);
+      var m = sut.Build();
+      Assert.AreEqual(GamePerspective.FPP, m.Perspective);
+    }
+
+    [Test]
+    public void TestWithMode()
+    {
+      var sut = GetMinimalBuilder();
+      var m = sut.WithMode(GameMode.Duo).Build();
+      Assert.AreEqual(GameMode.Duo, m.Mode);
+    }
+
+
+    [Test]
+    public void TestWithoutMode()
+    {
+      var m = GetMinimalBuilder().Build();
+      Assert.AreEqual(GameMode.Solo, m.Mode);
+    }
+
+    [Test]
+    public void TestWithLesson()
+    {
+      var m = GetMinimalBuilder().WithLesson("Don't overextend").Build();
+      Assert.AreEqual("Don't overextend", m.Lesson);
+    }
+
+    [Test]
+    public void TestWithoutLesson()
+    {
+      var m = GetMinimalBuilder().Build();
+      Assert.AreEqual(string.Empty, m.Lesson);
+    }
+
+    [Test]
+    public void TestWithDate()
+    {
+      var m = GetMinimalBuilder().WithDate(new DateTime(1985, 03, 04)).Build();
+      Assert.AreEqual(new DateTime(1985,03,04), m.Date);
+    }
+
+    [Test]
+    public void TestWithoutDate()
+    {
+      var m = GetMinimalBuilder().Build();
+      Assert.Null(m.Date);
+    }
+
+    private IMatchBuilder GetMinimalBuilder(int kills = 0, int rank = 0, int score = 0)
+    {
+      return new MatchBuilder().WithKills(kills).WithRank(rank).WithScore(score);
     }
   }
 }
