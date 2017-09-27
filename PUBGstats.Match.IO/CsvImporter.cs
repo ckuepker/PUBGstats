@@ -30,6 +30,10 @@ namespace PUBGstats.Match.IO
       p.Delimiters = new[] {","};
       p.HasFieldsEnclosedInQuotes = true;
       string[] fields = p.ReadFields();
+      if (fields.Length < 10 || (!string.IsNullOrEmpty(fields[0]) && !int.TryParse(fields[0], out int i)))
+      {
+        return null;
+      }
       int id, kills, rank, score, rating;
       if (!int.TryParse(fields[0], out id))
       {

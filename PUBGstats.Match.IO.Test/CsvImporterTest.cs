@@ -24,6 +24,14 @@ namespace PUBGstats.Match.IO.Test
     }
 
     [Test]
+    public void TestReturnsNullFromInvalidLine()
+    {
+      string input = "asdjhskhbjfdbsnfbjndklbn";
+      var sut = new CsvImporter(GameMode.Solo, GamePerspective.FPP);
+      Assert.Null(sut.Import(input));
+    }
+
+    [Test]
     public void TestCreatesMatchFromLineWithDate()
     {
       string input = ",170917,,0,24,91,,,,,";
@@ -36,7 +44,7 @@ namespace PUBGstats.Match.IO.Test
     [Test]
     public void TestCreatesMatchFromLineWithRating()
     {
-      string input = ",,,2,26,166,,,,,";
+      string input = ",,,2,26,166,1448,,,,";
       var  sut = new CsvImporter(GameMode.Solo, GamePerspective.FPP);
       var m = sut.Import(input);
       Assert.AreEqual(1448, m.Rating);

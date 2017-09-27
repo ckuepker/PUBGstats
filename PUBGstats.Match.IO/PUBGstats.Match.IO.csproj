@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Batch\CsvFileBatchMatchImporter.cs" />
+    <Compile Include="Batch\IBatchMatchImporter.cs" />
     <Compile Include="CsvImporter.cs" />
     <Compile Include="IMatchImporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
