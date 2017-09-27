@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Runtime.InteropServices;
-using System.Runtime.Remoting.Messaging;
 using log4net;
 using Microsoft.VisualBasic.FileIO;
-using PUBGstats.Match;
 using PUBGstats.Match.Builder;
 
 namespace PUBGstats.Match.IO
@@ -30,7 +26,8 @@ namespace PUBGstats.Match.IO
       p.Delimiters = new[] {","};
       p.HasFieldsEnclosedInQuotes = true;
       string[] fields = p.ReadFields();
-      if (fields.Length < 10 || (!string.IsNullOrEmpty(fields[0]) && !int.TryParse(fields[0], out int i)))
+      int i;
+      if (fields.Length < 10 || (!string.IsNullOrEmpty(fields[0]) && !int.TryParse(fields[0], out i)))
       {
         return null;
       }
@@ -45,11 +42,11 @@ namespace PUBGstats.Match.IO
       }
       if (!int.TryParse(fields[4], out rank))
       {
-        kills = 0;
+        rank = 0;
       }
       if (!int.TryParse(fields[5], out score))
       {
-        kills = 0;
+        score = 0;
       }
       if (!int.TryParse(fields[6], out rating))
       {
