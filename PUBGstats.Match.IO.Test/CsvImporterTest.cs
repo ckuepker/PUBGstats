@@ -13,9 +13,12 @@ namespace PUBGstats.Match.IO.Test
       var sut = new CsvImporter(GameMode.Duo, GamePerspective.FPP);
       IMatch m = sut.Import(csvInput);
       Assert.Null(m.Date);
+      Assert.AreEqual(GameMode.Duo, m.Mode);
+      Assert.AreEqual(GamePerspective.FPP, m.Perspective);
       Assert.AreEqual(1, m.Id);
       Assert.AreEqual(0, m.Kills);
       Assert.AreEqual(100, m.Rank);
+      Assert.AreEqual(0, m.Score);
       Assert.AreEqual("AFK", m.DeathCause);
       Assert.AreEqual(string.Empty, m.Lesson);
     }
@@ -33,7 +36,16 @@ namespace PUBGstats.Match.IO.Test
     [Test]
     public void TestCreatesMatchFromLineWithRating()
     {
-      Assert.Fail("test no exist");
+      string input = ",,,2,26,166,1448,,,,";
+      var  sut = new CsvImporter(GameMode.Solo, GamePerspective.FPP);
+      var m = sut.Import(input);
+      Assert.AreEqual(1448, m.Rating);
+    }
+
+    [Test]
+    public void TestCreatesMatchFromLineWithScore()
+    {
+      Assert.Fail("Test no esta");
     }
   }
 }

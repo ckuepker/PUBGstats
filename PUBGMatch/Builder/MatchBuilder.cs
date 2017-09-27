@@ -15,7 +15,7 @@ namespace PUBGstats.Match.Builder
 
     public IMatch Build()
     {
-      return new Match(_id, _mode, _perspective, _kills, _score, _rank, _date, _cause, _lesson);
+      return new Match(_id, _mode, _perspective, _kills, _score, _rank, _date, _rating, _cause, _lesson);
     }
 
     public IMatchBuilder WithMode(GameMode mode)
@@ -50,7 +50,8 @@ namespace PUBGstats.Match.Builder
 
     public IMatchBuilder WithRating(int rating)
     {
-      throw new NotImplementedException();
+      _rating = rating;
+      return this;
     }
 
     public IMatchBuilder WithDeathCause(string cause)

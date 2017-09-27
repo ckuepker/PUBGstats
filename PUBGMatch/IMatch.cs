@@ -18,5 +18,6 @@ namespace PUBGstats.Match
     GamePerspective Perspective { get; }
     string Lesson { get; }
     DateTime? Date { get; }
+    int Rating { get; }
   }
 }

@@ -108,6 +108,20 @@ namespace PUBGstats.Match.Test
       Assert.Null(m.Date);
     }
 
+    [Test]
+    public void TestWithRating()
+    {
+      var m = GetMinimalBuilder().WithRating(1411).Build();
+      Assert.AreEqual(1411,m.Rating);
+    }
+
+    [Test]
+    public void TestWithoutRating()
+    {
+      var m = GetMinimalBuilder().Build();
+      Assert.AreEqual(0,m.Rating);
+    }
+
     private IMatchBuilder GetMinimalBuilder(int kills = 0, int rank = 0, int score = 0)
     {
       return new MatchBuilder().WithKills(kills).WithRank(rank).WithScore(score);

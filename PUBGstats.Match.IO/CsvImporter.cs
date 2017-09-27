@@ -30,7 +30,7 @@ namespace PUBGstats.Match.IO
       p.Delimiters = new[] {","};
       p.HasFieldsEnclosedInQuotes = true;
       string[] fields = p.ReadFields();
-      int id, kills, rank, score;
+      int id, kills, rank, score, rating;
       if (!int.TryParse(fields[0], out id))
       {
         id = 0;
@@ -47,6 +47,10 @@ namespace PUBGstats.Match.IO
       {
         kills = 0;
       }
+      if (!int.TryParse(fields[6], out rating))
+      {
+        rating = 0;
+      }
       DateTime? date = null;
       date = GetDateTime(fields[1]);
       
@@ -61,7 +65,8 @@ namespace PUBGstats.Match.IO
         .WithScore(score)
         .WithDeathCause(fields[9])
         .WithLesson(fields[10])
-        .WithDate(date);
+        .WithDate(date)
+        .WithRating(rating);
 
       return mb.Build();
     }

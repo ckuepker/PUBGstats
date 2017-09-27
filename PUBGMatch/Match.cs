@@ -5,7 +5,7 @@ namespace PUBGstats.Match
 {
   public class Match : IMatch
   {
-    public Match(int id, GameMode mode, GamePerspective perspective, int kills, int score, int rank, DateTime? date, string deathCause = "", string lesson = "")
+    public Match(int id, GameMode mode, GamePerspective perspective, int kills, int score, int rank, DateTime? date = null, int rating = -1, string deathCause = "", string lesson = "")
     {
       Id = id;
       Mode = mode;
@@ -16,9 +16,11 @@ namespace PUBGstats.Match
       DeathCause = deathCause;
       Lesson = lesson;
       Date = date;
+      Rating = rating;
     }
 
     public DateTime? Date { get; }
+    public int Rating { get; }
     public int Id { get; }
     public int Kills { get; }
     public int Rank { get; }
