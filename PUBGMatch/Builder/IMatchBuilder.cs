@@ -2,14 +2,14 @@
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PUBGMatch;
+using PUBGstats.Match;
 
 namespace PUBGstats.Match.Builder
 {
   public interface IMatchBuilder
   {
     IMatch Build();
-    IMatchBuilder WithMode(Mode mode);
+    IMatchBuilder WithMode(GameMode mode);
     IMatchBuilder WithPerspective(GamePerspective perspective);
     IMatchBuilder WithKills(int kills);
     IMatchBuilder WithScore(int score);

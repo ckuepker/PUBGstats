@@ -2,17 +2,17 @@
 using System.IO;
 using System.Runtime.Remoting.Messaging;
 using Microsoft.VisualBasic.FileIO;
-using PUBGMatch;
+using PUBGstats.Match;
 
 namespace PUBGstats.Match.IO
 {
   public class CsvImporter : IMatchImporter<string>
   {
-    private readonly Mode _mode;
+    private readonly GameMode _mode;
     private readonly GamePerspective _perspective;
     //private readonly IMatchBuilder _builder;
 
-    public CsvImporter(Mode mode, GamePerspective perspective)
+    public CsvImporter(GameMode mode, GamePerspective perspective)
     {
       _mode = mode;
       _perspective = perspective;

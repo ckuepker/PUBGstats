@@ -1,12 +1,12 @@
 ﻿using System;
-using PUBGMatch;
+using PUBGstats.Match;
 
 namespace PUBGstats.Match.Builder
 {
   public class MatchBuilder : IMatchBuilder
   {
     private int _kills, _score, _rank, _rating;
-    private Mode _mode = Mode.Solo;
+    private GameMode _mode = GameMode.Solo;
     private GamePerspective _perspective = GamePerspective.FPP;
     private string _cause = string.Empty;
 
@@ -15,7 +15,7 @@ namespace PUBGstats.Match.Builder
       return new Match(_mode, _perspective, _kills, _score, _rank, _cause);
     }
 
-    public IMatchBuilder WithMode(Mode mode)
+    public IMatchBuilder WithMode(GameMode mode)
     {
       throw new NotImplementedException();
     }

@@ -1,4 +1,4 @@
-﻿namespace PUBGMatch
+﻿namespace PUBGstats.Match
 {
   public enum GamePerspective : short
   {

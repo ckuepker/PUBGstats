@@ -14,7 +14,7 @@
         <ColumnDefinition Width="100"></ColumnDefinition>
         <ColumnDefinition Width="200"></ColumnDefinition>
       </Grid.ColumnDefinitions>
-      <ComboBox Name="ModeComboBox" SelectedItem="{Binding GameMode}" ItemsSource="{Binding AvailableModes}" Grid.Row="0" Grid.Column="0"></ComboBox>
+      <ComboBox Name="ModeComboBox" SelectedItem="{Binding Mode}" ItemsSource="{Binding AvailableModes}" Grid.Row="0" Grid.Column="0"></ComboBox>
       <ComboBox Name="PerspectiveComboBox" SelectedItem="{Binding Perspective}" ItemsSource="{Binding AvailablePerspectives}" Grid.Row="0" Grid.Column="1"></ComboBox>
       <TextBlock Name="KillCountLabel"  Grid.Column="0" Grid.Row="1">Kills</TextBlock>
       <TextBox Name="KillCountTextBox" Text="{Binding KillCount}" Grid.Column="1" Grid.Row="1"></TextBox>

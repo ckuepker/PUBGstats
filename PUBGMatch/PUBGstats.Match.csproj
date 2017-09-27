@@ -44,7 +44,7 @@
     <Compile Include="Builder\MatchBuilder.cs" />
     <Compile Include="IMatch.cs" />
     <Compile Include="Match.cs" />
-    <Compile Include="Mode.cs" />
+    <Compile Include="GameMode.cs" />
     <Compile Include="GamePerspective.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

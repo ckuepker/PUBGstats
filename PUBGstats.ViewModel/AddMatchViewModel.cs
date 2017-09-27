@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using System.Windows.Input;
-using PUBGMatch;
 using PUBGstats.ViewModel.Command;
-
+using PUBGstats.Match;
 namespace PUBGstats.ViewModel
 {
   public class AddMatchViewModel : ViewModelBase
@@ -11,8 +10,8 @@ namespace PUBGstats.ViewModel
 
     public AddMatchViewModel()
     {
-      GameMode = Mode.Squad;
-      Perspective = PUBGMatch.GamePerspective.FPP;
+      Mode = GameMode.Squad;
+      Perspective = GamePerspective.FPP;
     }
 
     public ICommand StoreCommand
@@ -26,15 +25,15 @@ namespace PUBGstats.ViewModel
       })); }
     }
 
-    public Mode GameMode { get; set; }
+    public GameMode Mode { get; set; }
     public GamePerspective Perspective { get; set; }
     public string KillCount { get; set; }
     public string Rank { get; set; }
     public string Score { get; set; }
 
-    public IEnumerable<Mode> AvailableModes
+    public IEnumerable<GameMode> AvailableModes
     {
-      get { return new List<Mode> {Mode.Solo, Mode.Duo, Mode.Squad, Mode.Custom}; }
+      get { return new List<GameMode> {GameMode.Solo, GameMode.Duo, GameMode.Squad, GameMode.Custom}; }
     }
 
     public IEnumerable<GamePerspective> AvailablePerspectives

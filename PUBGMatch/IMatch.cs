@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PUBGMatch;
+using PUBGstats.Match;
 
 namespace PUBGstats.Match
 {
@@ -14,7 +14,7 @@ namespace PUBGstats.Match
     int Rank { get; }
     int Score { get; }
     string DeathCause { get; }
-    Mode GameMode { get; }
+    GameMode Mode { get; }
     GamePerspective Perspective { get; }
   }
 }
