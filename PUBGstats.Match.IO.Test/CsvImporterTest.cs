@@ -36,7 +36,7 @@ namespace PUBGstats.Match.IO.Test
     [Test]
     public void TestCreatesMatchFromLineWithRating()
     {
-      string input = ",,,2,26,166,1448,,,,";
+      string input = ",,,2,26,166,,,,,";
       var  sut = new CsvImporter(GameMode.Solo, GamePerspective.FPP);
       var m = sut.Import(input);
       Assert.AreEqual(1448, m.Rating);
@@ -45,7 +45,10 @@ namespace PUBGstats.Match.IO.Test
     [Test]
     public void TestCreatesMatchFromLineWithScore()
     {
-      Assert.Fail("Test no esta");
+      string input = ",,,2,26,166,,,,,";
+      var sut = new CsvImporter(GameMode.Solo, GamePerspective.FPP);
+      var m = sut.Import(input);
+      Assert.AreEqual(166, m.Score);
     }
   }
 }
