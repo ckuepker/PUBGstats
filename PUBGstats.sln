@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBGstats.Match.IO.Test", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBGstats.Match.Test", "PUBGstats.Match.Test\PUBGstats.Match.Test.csproj", "{12182953-A9BC-4CF0-8D14-D7D411FCEC60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUBGstats.ViewModel.Test", "PUBGstats.ViewModel.Test\PUBGstats.ViewModel.Test.csproj", "{30496CD3-1838-4093-AAAF-D952B9E377E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{12182953-A9BC-4CF0-8D14-D7D411FCEC60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12182953-A9BC-4CF0-8D14-D7D411FCEC60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12182953-A9BC-4CF0-8D14-D7D411FCEC60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30496CD3-1838-4093-AAAF-D952B9E377E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30496CD3-1838-4093-AAAF-D952B9E377E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30496CD3-1838-4093-AAAF-D952B9E377E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30496CD3-1838-4093-AAAF-D952B9E377E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,5 +60,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{EF2B636B-5978-4F76-984D-3F2D3096FB56} = {110C2829-CC12-4FAB-8405-07FABFD39FAA}
 		{12182953-A9BC-4CF0-8D14-D7D411FCEC60} = {110C2829-CC12-4FAB-8405-07FABFD39FAA}
+		{30496CD3-1838-4093-AAAF-D952B9E377E8} = {110C2829-CC12-4FAB-8405-07FABFD39FAA}
 	EndGlobalSection
 EndGlobal

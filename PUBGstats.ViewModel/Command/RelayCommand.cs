@@ -24,5 +24,14 @@ namespace PUBGstats.ViewModel.Command
     }
 
     public event EventHandler CanExecuteChanged;
+    public bool CanExecute()
+    {
+      return CanExecute(null);
+    }
+
+    public void Execute()
+    {
+      Execute(null);
+    }
   }
 }
