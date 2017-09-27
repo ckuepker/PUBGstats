@@ -12,7 +12,7 @@ namespace PUBGstats.ViewModel
     public AddMatchViewModel()
     {
       GameMode = Mode.Squad;
-      GamePerspective = Perspective.FPP;
+      Perspective = PUBGMatch.GamePerspective.FPP;
     }
 
     public ICommand StoreCommand
@@ -27,7 +27,7 @@ namespace PUBGstats.ViewModel
     }
 
     public Mode GameMode { get; set; }
-    public Perspective GamePerspective { get; set; }
+    public GamePerspective Perspective { get; set; }
     public string KillCount { get; set; }
     public string Rank { get; set; }
     public string Score { get; set; }
@@ -37,9 +37,9 @@ namespace PUBGstats.ViewModel
       get { return new List<Mode> {Mode.Solo, Mode.Duo, Mode.Squad, Mode.Custom}; }
     }
 
-    public IEnumerable<Perspective> AvailablePerspectives
+    public IEnumerable<GamePerspective> AvailablePerspectives
     {
-      get { return new List<Perspective> { Perspective.FPP, Perspective.TPP }; }
+      get { return new List<GamePerspective> { GamePerspective.FPP, GamePerspective.TPP }; }
     }
   }
 }

@@ -9,7 +9,7 @@ namespace PUBGstats.Match.IO.Test
     public void TestCreatesMatchFromValidLine()
     {
       string csvInput = "1,,,0,100,,,\"0,00\",\"100,00\",AFK,";
-      var sut = new CsvImporter(Mode.Duo, Perspective.FPP);
+      var sut = new CsvImporter(Mode.Duo, GamePerspective.FPP);
       IMatch m = sut.Import(csvInput);
       Assert.AreEqual(1, m.Id);
       Assert.AreEqual(0, m.Kills);

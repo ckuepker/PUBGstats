@@ -6,20 +6,14 @@ namespace PUBGstats.Match
   {
     private static int _nextId = 1;
 
-    private Mode _mode;
-    private Perspective _perspective;
-    private int _kills;
-    private int _score;
-    private int _rank;
-
-    public Match(Mode mode, Perspective perspective, int kills, int score, int rank)
+    public Match(Mode mode, GamePerspective perspective, int kills, int score, int rank, string deathCause)
     {
       GameMode = mode;
-      GamePerspective = perspective;
-      Id = _nextId++;
+      Perspective = perspective;
       Kills = kills;
       Score = score;
       Rank = rank;
+      DeathCause = deathCause;
     }
 
     public int Id { get; }
@@ -28,6 +22,6 @@ namespace PUBGstats.Match
     public int Score { get; }
     public string DeathCause { get; }
     public Mode GameMode { get; }
-    public Perspective GamePerspective { get; }
+    public GamePerspective Perspective { get; }
   }
 }

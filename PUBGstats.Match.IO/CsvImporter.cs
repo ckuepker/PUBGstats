@@ -9,10 +9,10 @@ namespace PUBGstats.Match.IO
   public class CsvImporter : IMatchImporter<string>
   {
     private readonly Mode _mode;
-    private readonly Perspective _perspective;
+    private readonly GamePerspective _perspective;
     //private readonly IMatchBuilder _builder;
 
-    public CsvImporter(Mode mode, Perspective perspective)
+    public CsvImporter(Mode mode, GamePerspective perspective)
     {
       _mode = mode;
       _perspective = perspective;

@@ -10,10 +10,11 @@ namespace PUBGstats.Match.Builder
   {
     IMatch Build();
     IMatchBuilder WithMode(Mode mode);
-    IMatchBuilder WithPerspective(Perspective perspective);
+    IMatchBuilder WithPerspective(GamePerspective perspective);
     IMatchBuilder WithKills(int kills);
     IMatchBuilder WithScore(int score);
     IMatchBuilder WithRank(int rank);
     IMatchBuilder WithRating(int rating);
+    IMatchBuilder WithDeathCause(string cause);
   }
 }

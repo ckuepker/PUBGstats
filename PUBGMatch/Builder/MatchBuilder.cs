@@ -7,11 +7,12 @@ namespace PUBGstats.Match.Builder
   {
     private int _kills, _score, _rank, _rating;
     private Mode _mode = Mode.Solo;
-    private Perspective _perspective = Perspective.FPP;
+    private GamePerspective _perspective = GamePerspective.FPP;
+    private string _cause = string.Empty;
 
     public IMatch Build()
     {
-      return new Match(_mode, _perspective, _kills, _score, _rank);
+      return new Match(_mode, _perspective, _kills, _score, _rank, _cause);
     }
 
     public IMatchBuilder WithMode(Mode mode)
@@ -19,7 +20,7 @@ namespace PUBGstats.Match.Builder
       throw new NotImplementedException();
     }
 
-    public IMatchBuilder WithPerspective(Perspective perspective)
+    public IMatchBuilder WithPerspective(GamePerspective perspective)
     {
       throw new NotImplementedException();
     }
@@ -45,6 +46,12 @@ namespace PUBGstats.Match.Builder
     public IMatchBuilder WithRating(int rating)
     {
       throw new NotImplementedException();
+    }
+
+    public IMatchBuilder WithDeathCause(string cause)
+    {
+      _cause = cause;
+      return this;
     }
   }
 }

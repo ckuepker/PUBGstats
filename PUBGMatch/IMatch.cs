@@ -15,6 +15,6 @@ namespace PUBGstats.Match
     int Score { get; }
     string DeathCause { get; }
     Mode GameMode { get; }
-    Perspective GamePerspective { get; }
+    GamePerspective Perspective { get; }
   }
 }

@@ -1,6 +1,6 @@
 ﻿namespace PUBGMatch
 {
-  public enum Perspective : short
+  public enum GamePerspective : short
   {
     FPP, TPP
   }
