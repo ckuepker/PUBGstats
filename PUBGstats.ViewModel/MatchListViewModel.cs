@@ -25,10 +25,15 @@ namespace PUBGstats.ViewModel
 
     public IList<IMatch> Matches
     {
-      get {
+      get
+      {
         return _matches;
       }
-      set { _matches = value; }
+      set
+      {
+        _matches = value;
+        OnPropertyChanged("Matches");
+      }
     }
 
     protected override void ReceivePropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
