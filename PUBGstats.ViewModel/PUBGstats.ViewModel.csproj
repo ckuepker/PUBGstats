@@ -48,8 +48,10 @@
     <Compile Include="Command\IRelayCommand.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="IImportMatchesViewModel.cs" />
+    <Compile Include="IMatchListViewModel.cs" />
     <Compile Include="ImportMatchesViewModel.cs" />
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="MatchListViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="IViewModelBase.cs" />
   </ItemGroup>
