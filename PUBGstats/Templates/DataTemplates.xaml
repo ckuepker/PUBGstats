@@ -28,4 +28,8 @@
       <Button Command="{Binding StoreCommand}" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0">Save</Button>
     </Grid>
   </DataTemplate>
+  
+  <DataTemplate DataType="{x:Type viewModel:MatchListViewModel}">
+    <DataGrid Name="MatchListDataGrid" ItemsSource="{Binding Matches}" />
+  </DataTemplate>
 </ResourceDictionary>

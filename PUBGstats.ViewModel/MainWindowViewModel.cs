@@ -5,7 +5,7 @@ namespace PUBGstats.ViewModel
 {
   public class MainWindowViewModel : ViewModelBase
   {
-    private IViewModelBase _addMatchViewModel;
+    private IViewModelBase _addMatchViewModel, _matchListViewModel;
 
     public MainWindowViewModel()
     {
@@ -13,7 +13,7 @@ namespace PUBGstats.ViewModel
 
     public IViewModelBase SelectedContent
     {
-      get { return null; }
+      get { return _matchListViewModel ?? (_matchListViewModel = new MatchListViewModel()); }
     }
 
     public string CurrentSeason
