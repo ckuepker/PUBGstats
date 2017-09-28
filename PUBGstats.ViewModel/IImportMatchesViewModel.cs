@@ -1,13 +1,15 @@
-﻿using PUBGstats.Match;
+﻿using System.Collections.Generic;
+using PUBGstats.Match;
 using PUBGstats.ViewModel.Command;
 
 namespace PUBGstats.ViewModel
 {
   public interface IImportMatchesViewModel : IViewModelBase
   {
-    string InputFilePath { get; }
+    string InputFilePath { get; set; }
     GameMode Mode { get; }
     GamePerspective Perspective { get; }
-    IRelayCommand<object> ImportCommand { get; }
+    IRelayCommand<object> SelectFileCommand { get; }
+    IList<IMatch> ImportedMatches { get; }
   }
 }

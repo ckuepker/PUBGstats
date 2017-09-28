@@ -30,6 +30,8 @@
   </DataTemplate>
   
   <DataTemplate DataType="{x:Type viewModel:MatchListViewModel}">
-    <DataGrid Name="MatchListDataGrid" ItemsSource="{Binding Matches}" />
+    <DataGrid Name="MatchListDataGrid" ItemsSource="{Binding Matches}">
+      
+    </DataGrid>
   </DataTemplate>
 </ResourceDictionary>

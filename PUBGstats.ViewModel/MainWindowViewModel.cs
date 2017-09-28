@@ -1,4 +1,6 @@
 using System.Windows.Input;
+using PUBGstats.Match;
+using PUBGstats.Match.IO.Batch;
 using PUBGstats.ViewModel.Command;
 
 namespace PUBGstats.ViewModel
@@ -9,11 +11,12 @@ namespace PUBGstats.ViewModel
 
     public MainWindowViewModel()
     {
+      ImportMatchesViewModel = new ImportMatchesViewModel(new CsvFileBatchMatchImporter(GameMode.Solo, GamePerspective.FPP));
     }
 
     public IViewModelBase SelectedContent
     {
-      get { return _matchListViewModel ?? (_matchListViewModel = new MatchListViewModel()); }
+      get { return _matchListViewModel ?? (_matchListViewModel = new MatchListViewModel(ImportMatchesViewModel)); }
     }
 
     public string CurrentSeason
@@ -25,6 +28,7 @@ namespace PUBGstats.ViewModel
     {
       get { return _addMatchViewModel ?? (_addMatchViewModel = new AddMatchViewModel()); }
     }
+    public IImportMatchesViewModel ImportMatchesViewModel { get; }
 
   }
 }

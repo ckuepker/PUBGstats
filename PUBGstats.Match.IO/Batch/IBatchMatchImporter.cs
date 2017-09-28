@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PUBGstats.Match.IO.Batch
 {
-  interface IBatchMatchImporter<T>
+  public interface IBatchMatchImporter<T>
   {
     IEnumerable<IMatch> Import(T source);
   }

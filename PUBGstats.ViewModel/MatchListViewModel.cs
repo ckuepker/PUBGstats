@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,18 +11,29 @@ namespace PUBGstats.ViewModel
 {
   public class MatchListViewModel : ViewModelBase, IMatchListViewModel
   {
+    private readonly IImportMatchesViewModel _importViewModel;
     private IList<IMatch> _matches;
+
+    public MatchListViewModel(IImportMatchesViewModel importViewModel)
+    {
+      _importViewModel = importViewModel;
+      if (_importViewModel != null)
+      {
+        PropertyChangedEventManager.AddListener(_importViewModel, this, "ImportedMatches");
+      }
+    }
 
     public IList<IMatch> Matches
     {
       get {
-        return _matches ?? (_matches = new List<IMatch> {
-          new MatchBuilder().WithId(1).WithKills(8).WithRank(2).WithScore(100).Build(),
-          new MatchBuilder().WithId(2).WithKills(1).WithRank(22).WithScore(70).Build(),
-          new MatchBuilder().WithId(3).WithKills(1).WithRank(65).WithScore(35).Build()
-        });
+        return _matches;
       }
       set { _matches = value; }
+    }
+
+    protected override void ReceivePropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
+    {
+      Matches = _importViewModel.ImportedMatches;
     }
   }
 }

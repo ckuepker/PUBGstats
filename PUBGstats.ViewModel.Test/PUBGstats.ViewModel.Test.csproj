@@ -50,6 +50,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ImportMatchesViewModelTest.cs" />
@@ -67,6 +68,10 @@
     <ProjectReference Include="..\PUBGMatch\PUBGstats.Match.csproj">
       <Project>{5E93E1D1-5D08-45EE-B2EE-A57C259CAD96}</Project>
       <Name>PUBGstats.Match</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PUBGstats.Match.IO\PUBGstats.Match.IO.csproj">
+      <Project>{CBBAC626-94E4-485C-B3C7-A1E18800BB99}</Project>
+      <Name>PUBGstats.Match.IO</Name>
     </ProjectReference>
     <ProjectReference Include="..\PUBGstats.ViewModel\PUBGstats.ViewModel.csproj">
       <Project>{BA6F21B4-AA22-4A3C-9718-6BFB78E70860}</Project>

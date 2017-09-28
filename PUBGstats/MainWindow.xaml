@@ -26,6 +26,7 @@
              Width="310" Height="140" Placement="Bottom" AllowsTransparency="True">
         <ContentPresenter Content="{Binding AddMatchViewModel}"></ContentPresenter>
       </Popup>
+      <Button Name="ImportButton" Command="{Binding ImportMatchesViewModel.SelectFileCommand}">Import</Button>
     </StackPanel>
     <ContentPresenter Grid.Row="1" Content="{Binding SelectedContent}"></ContentPresenter>
     <StackPanel Grid.Row="2" Orientation="Horizontal">

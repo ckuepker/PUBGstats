@@ -38,6 +38,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -63,11 +67,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PUBGMatch\PUBGstats.Match.csproj">
       <Project>{5E93E1D1-5D08-45EE-B2EE-A57C259CAD96}</Project>
       <Name>PUBGstats.Match</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PUBGstats.Match.IO\PUBGstats.Match.IO.csproj">
+      <Project>{CBBAC626-94E4-485C-B3C7-A1E18800BB99}</Project>
+      <Name>PUBGstats.Match.IO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
