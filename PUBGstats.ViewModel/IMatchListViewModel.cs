@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using PUBGstats.Match;
 
 namespace PUBGstats.ViewModel
@@ -10,5 +6,7 @@ namespace PUBGstats.ViewModel
   public interface IMatchListViewModel : IViewModelBase
   {
     IList<IMatch> Matches { get; set; }
+    GameMode Mode { get; }
+    GamePerspective Perspective { get; }
   }
 }

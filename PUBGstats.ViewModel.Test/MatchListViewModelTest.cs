@@ -2,6 +2,7 @@
 using System.Linq;
 using Moq;
 using NUnit.Framework;
+using PUBGstats.Match;
 
 namespace PUBGstats.ViewModel.Test
 {
@@ -10,7 +11,7 @@ namespace PUBGstats.ViewModel.Test
     [Test]
     public void TestGetMatchesIsNullByDefault()
     {
-      var sut = new MatchListViewModel(new Mock<IImportMatchesViewModel>().Object);
+      var sut = new MatchListViewModel(GameMode.Solo, GamePerspective.FPP);
       Assert.Null(sut.Matches);
     }
   }

@@ -1,26 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using PUBGstats.Match;
-using PUBGstats.Match.Builder;
 
 namespace PUBGstats.ViewModel
 {
   public class MatchListViewModel : ViewModelBase, IMatchListViewModel
   {
-    private readonly IImportMatchesViewModel _importViewModel;
     private IList<IMatch> _matches;
 
-    public MatchListViewModel(IImportMatchesViewModel importViewModel)
+    public MatchListViewModel(GameMode mode, GamePerspective perspective)
     {
-      _importViewModel = importViewModel;
-      if (_importViewModel != null)
-      {
-        PropertyChangedEventManager.AddListener(_importViewModel, this, "ImportedMatches");
-      }
+      Mode = mode;
+      Perspective = perspective;
     }
 
     public IList<IMatch> Matches
@@ -36,9 +26,7 @@ namespace PUBGstats.ViewModel
       }
     }
 
-    protected override void ReceivePropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
-    {
-      Matches = _importViewModel.ImportedMatches;
-    }
+    public GameMode Mode { get; }
+    public GamePerspective Perspective { get; }
   }
 }

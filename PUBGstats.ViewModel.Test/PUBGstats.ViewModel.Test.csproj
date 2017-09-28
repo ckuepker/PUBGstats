@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ImportMatchesViewModelTest.cs" />
+    <Compile Include="MainWindowViewModelTest.cs" />
     <Compile Include="MatchListViewModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
