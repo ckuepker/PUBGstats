@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PUBGstats.Match;
 
 namespace PUBGstats.Match
 {
@@ -19,5 +14,6 @@ namespace PUBGstats.Match
     string Lesson { get; }
     DateTime? Date { get; }
     int Rating { get; }
+    SeasonInfo Season { get; }
   }
 }

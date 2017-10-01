@@ -122,6 +122,21 @@ namespace PUBGstats.Match.Test
       Assert.AreEqual(0,m.Rating);
     }
 
+    [Test]
+    public void TestWithoutSeason()
+    {
+      IMatch sut = GetMinimalBuilder().Build();
+      Assert.Null(sut.Season);
+    }
+
+    [Test]
+    public void TestMatchWithSeasonHasCorrectSeasonInfo()
+    {
+      SeasonInfo seasonInfo = new SeasonInfo(SeasonType.Standard, 4);
+      IMatch sut = GetMinimalBuilder().WithSeason(seasonInfo).Build();
+      Assert.AreEqual(seasonInfo, sut.Season);
+    }
+
     private IMatchBuilder GetMinimalBuilder(int kills = 0, int rank = 0, int score = 0)
     {
       return new MatchBuilder().WithKills(kills).WithRank(rank).WithScore(score);

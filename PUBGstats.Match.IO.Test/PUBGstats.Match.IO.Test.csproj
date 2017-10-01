@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Batch\CsvFileBatchMatchImporterTest.cs" />
     <Compile Include="CsvImporterTest.cs" />
+    <Compile Include="Store\MatchDataStoreTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

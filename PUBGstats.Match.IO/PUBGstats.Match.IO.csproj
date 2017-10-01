@@ -50,6 +50,8 @@
     <Compile Include="CsvImporter.cs" />
     <Compile Include="IMatchImporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Store\IMatchDataStore.cs" />
+    <Compile Include="Store\MatchDataStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PUBGMatch\PUBGstats.Match.csproj">
