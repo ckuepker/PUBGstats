@@ -7,9 +7,14 @@ namespace PUBGstats.Match.IO.Store
   {
     private string _storePath = "";
 
+    public MatchDataStore(string storePath = null)
+    {
+      _storePath = storePath;
+    }
+
     public IEnumerable<IMatch> LoadMatches(SeasonInfo seasonInfo, GameMode mode, GamePerspective perspective)
     {
-      throw new NotImplementedException();
+      return null;
     }
   }
 }
