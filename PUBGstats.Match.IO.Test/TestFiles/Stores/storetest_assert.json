@@ -1,0 +1,26 @@
+﻿[
+  {
+    "Id": 1,
+    "Kills": 1,
+    "Score": 1,
+    "Rank": 1,
+    "Mode": "Solo",
+    "Perspective": "FPP" 
+  },
+  {
+    "Id": 2,
+    "Kills": 2,
+    "Score": 2,
+    "Rank": 2,
+    "Mode": "Solo",
+    "Perspective": "FPP"
+  },
+  {
+    "Id": 3,
+    "Kills": 3,
+    "Score": 3,
+    "Rank": 3,
+    "Mode": "Solo",
+    "Perspective": "FPP"
+  }
+]

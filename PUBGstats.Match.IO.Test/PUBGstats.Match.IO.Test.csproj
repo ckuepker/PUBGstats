@@ -57,6 +57,9 @@
     <Content Include="TestFiles\Stores\empty.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="TestFiles\Stores\storetest_assert.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PUBGMatch\PUBGstats.Match.csproj">
@@ -67,6 +70,9 @@
       <Project>{CBBAC626-94E4-485C-B3C7-A1E18800BB99}</Project>
       <Name>PUBGstats.Match.IO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
