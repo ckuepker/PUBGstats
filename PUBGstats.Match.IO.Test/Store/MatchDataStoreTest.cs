@@ -46,32 +46,28 @@ namespace PUBGstats.Match.IO.Test.Store
     public void TestLoadMatchesFromEmptyStore()
     {
       IMatchDataStore sut = new MatchDataStore(_testStoresTarget.FullName + "//empty.json");
-      foreach (SeasonType seasonType in Enum.GetValues(typeof(SeasonType)))
+      foreach (int i in new[] { 1, 2, 3, 4 })
       {
-        foreach (int i in new[] { 1, 2, 3, 4 })
+        foreach (GameMode mode in Enum.GetValues(typeof(GameMode)))
         {
-          SeasonInfo si = new SeasonInfo(seasonType, i);
-          foreach (GameMode mode in Enum.GetValues(typeof(GameMode)))
+          foreach (GamePerspective perspective in Enum.GetValues(typeof(GamePerspective)))
           {
-            foreach (GamePerspective perspective in Enum.GetValues(typeof(GamePerspective)))
-            {
-              CollectionAssert.IsEmpty(sut.LoadMatches(si, mode, perspective).ToList());
-            }
+            CollectionAssert.IsEmpty(sut.LoadMatches(i, mode, perspective).ToList());
           }
         }
       }
     }
 
     [Test]
-    [TestCase(SeasonType.EA, 4, GameMode.Solo, GamePerspective.FPP, 20)]
-    public void TestLoadMatches(SeasonType seasonType, int seasonNumber, GameMode mode, GamePerspective perspective, int expectedMatchCount)
+    [TestCase(4, GameMode.Solo, GamePerspective.FPP, 20)]
+    public void TestLoadMatches(int seasonNumber, GameMode mode, GamePerspective perspective, int expectedMatchCount)
     {
       IMatchDataStore sut = new MatchDataStore(_testStoresTarget.FullName + "//solofpp.json");
-      List<IMatch> matches = sut.LoadMatches(new SeasonInfo(seasonType, seasonNumber), mode, perspective).ToList();
+      List<IMatch> matches = sut.LoadMatches(seasonNumber, mode, perspective).ToList();
       Assert.AreEqual(expectedMatchCount, matches.Count);
       Assert.True(matches.All(m => m.Mode == mode));
       Assert.True(matches.All(m => m.Perspective == perspective));
-      Assert.True(matches.All(m => m.Season == new SeasonInfo(seasonType, seasonNumber)));
+      Assert.True(matches.All(m => m.Season == seasonNumber));
     }
 
     [Test]
@@ -87,7 +83,7 @@ namespace PUBGstats.Match.IO.Test.Store
       };
       sut.StoreMatches(matchesToStore);
       FileAssert.Exists(storeFile);
-      FileAssert.AreEqual(new FileInfo(TestContext.CurrentContext.TestDirectory+"//TestFiles/Stores/storetest_assert.json"), new FileInfo(storeFile));
+      FileAssert.AreEqual(new FileInfo(TestContext.CurrentContext.TestDirectory + "//TestFiles/Stores/storetest_assert.json"), new FileInfo(storeFile));
     }
   }
 }

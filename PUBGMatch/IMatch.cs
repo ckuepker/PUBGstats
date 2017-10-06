@@ -14,6 +14,6 @@ namespace PUBGstats.Match
     string Lesson { get; }
     DateTime? Date { get; }
     int Rating { get; }
-    SeasonInfo Season { get; }
+    int? Season { get; }
   }
 }

@@ -130,11 +130,10 @@ namespace PUBGstats.Match.Test
     }
 
     [Test]
-    public void TestMatchWithSeasonHasCorrectSeasonInfo()
+    public void TestMatchWithSeasono()
     {
-      SeasonInfo seasonInfo = new SeasonInfo(SeasonType.Standard, 4);
-      IMatch sut = GetMinimalBuilder().WithSeason(seasonInfo).Build();
-      Assert.AreEqual(seasonInfo, sut.Season);
+      IMatch sut = GetMinimalBuilder().WithSeason(4).Build();
+      Assert.AreEqual(4, sut.Season);
     }
 
     private IMatchBuilder GetMinimalBuilder(int kills = 0, int rank = 0, int score = 0)

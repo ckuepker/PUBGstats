@@ -14,7 +14,7 @@ namespace PUBGstats.Match.IO.Store
       _storePath = storePath;
     }
 
-    public IEnumerable<IMatch> LoadMatches(SeasonInfo seasonInfo, GameMode mode, GamePerspective perspective)
+    public IEnumerable<IMatch> LoadMatches(int season, GameMode mode, GamePerspective perspective)
     {
       return null;
     }

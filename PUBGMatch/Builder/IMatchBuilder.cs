@@ -20,6 +20,6 @@ namespace PUBGstats.Match.Builder
     IMatchBuilder WithId(int id);
     IMatchBuilder WithLesson(string lesson);
     IMatchBuilder WithDate(DateTime? date);
-    IMatchBuilder WithSeason(SeasonInfo seasonInfo);
+    IMatchBuilder WithSeason(int season);
   }
 }

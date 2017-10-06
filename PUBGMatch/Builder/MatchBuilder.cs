@@ -12,11 +12,11 @@ namespace PUBGstats.Match.Builder
     private int _id = -1;
     private string _lesson = string.Empty;
     private DateTime? _date = null;
-    private SeasonInfo _seasonInfo = null;
+    private int? _season = null;
 
     public IMatch Build()
     {
-      return new Match(_id, _mode, _perspective, _kills, _score, _rank, _date, _rating, _cause, _lesson, _seasonInfo);
+      return new Match(_id, _mode, _perspective, _kills, _score, _rank, _date, _rating, _cause, _lesson, _season);
     }
 
     public IMatchBuilder WithMode(GameMode mode)
@@ -79,9 +79,9 @@ namespace PUBGstats.Match.Builder
       return this;
     }
 
-    public IMatchBuilder WithSeason(SeasonInfo seasonInfo)
+    public IMatchBuilder WithSeason(int season)
     {
-      _seasonInfo = seasonInfo;
+      _season = season;
       return this;
     }
   }

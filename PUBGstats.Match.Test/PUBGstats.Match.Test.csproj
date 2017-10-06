@@ -47,7 +47,6 @@
     <Compile Include="MatchBuilderTest.cs" />
     <Compile Include="MatchTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SeasonInfoTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PUBGMatch\PUBGstats.Match.csproj">
