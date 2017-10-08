@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PUBGstats.Match;
 
 namespace PUBGstats.Match.Builder
 {
@@ -20,6 +15,7 @@ namespace PUBGstats.Match.Builder
     IMatchBuilder WithId(int id);
     IMatchBuilder WithLesson(string lesson);
     IMatchBuilder WithDate(DateTime? date);
+    IMatchBuilder WithDate(string date);
     IMatchBuilder WithSeason(int season);
   }
 }

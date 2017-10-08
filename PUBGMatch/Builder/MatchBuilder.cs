@@ -79,6 +79,46 @@ namespace PUBGstats.Match.Builder
       return this;
     }
 
+    public IMatchBuilder WithDate(string date)
+    {
+      int offset = 0;
+      int year;
+      if (date.Length == 8)
+      {
+        offset += 2;
+        if (!int.TryParse(date.Substring(0, 4), out year))
+        {
+          return null;
+        }
+      }
+      else if (date.Length == 6)
+      {
+        if (!int.TryParse(date.Substring(0, 2), out year))
+        {
+          return null;
+        }
+        year += 2000;
+      }
+      else
+      {
+        return null;
+      }
+
+      int month;
+      if (!int.TryParse(date.Substring(offset + 2, 2), out month))
+      {
+        return null;
+      }
+      int day;
+      if (!int.TryParse(date.Substring(offset + 4, 2), out day))
+      {
+        return null;
+      }
+
+      _date = new DateTime(year, month, day);
+      return this;
+    }
+
     public IMatchBuilder WithSeason(int season)
     {
       _season = season;
