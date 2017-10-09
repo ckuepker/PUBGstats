@@ -31,7 +31,7 @@ namespace PUBGstats.Match.Test
     public void TestWithoutDeathCause()
     {
       var m = GetMinimalBuilder().Build();
-      Assert.AreEqual(string.Empty, m.DeathCause);
+      Assert.AreEqual(null, m.DeathCause);
     }
 
     [Test]
@@ -91,7 +91,7 @@ namespace PUBGstats.Match.Test
     public void TestWithoutLesson()
     {
       var m = GetMinimalBuilder().Build();
-      Assert.AreEqual(string.Empty, m.Lesson);
+      Assert.AreEqual(null, m.Lesson);
     }
 
     [Test]
@@ -126,7 +126,7 @@ namespace PUBGstats.Match.Test
     public void TestWithoutRating()
     {
       var m = GetMinimalBuilder().Build();
-      Assert.AreEqual(0,m.Rating);
+      Assert.AreEqual(null,m.Rating);
     }
 
     [Test]
