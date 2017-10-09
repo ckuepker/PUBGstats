@@ -1,11 +1,12 @@
 using System;
+using System.Collections.Generic;
 using PUBGstats.Match;
 
 namespace PUBGstats.Match
 {
   public class Match : IMatch
   {
-    public Match(int id, GameMode mode, GamePerspective perspective, int kills, int score, int rank, DateTime? date = null, int rating = -1, string deathCause = "", string lesson = "", int? season = null)
+    public Match(int id, GameMode mode, GamePerspective perspective, int kills, int score, int rank, DateTime? date = null, int? rating = -1, string deathCause = "", string lesson = "", int? season = null, List<IPartner> partners = null)
     {
       Id = id;
       Mode = mode;
@@ -18,10 +19,11 @@ namespace PUBGstats.Match
       Date = date;
       Rating = rating;
       Season = season;
+      Partners = partners;
     }
 
     public DateTime? Date { get; }
-    public int Rating { get; }
+    public int? Rating { get; }
     public int Id { get; }
     public int Kills { get; }
     public int Rank { get; }
@@ -31,5 +33,6 @@ namespace PUBGstats.Match
     public GamePerspective Perspective { get; }
     public string Lesson { get; }
     public int? Season { get; }
+    public List<IPartner> Partners { get; }
   }
 }

@@ -102,6 +102,13 @@ namespace PUBGstats.Match.Test
     }
 
     [Test]
+    public void TestWithDateString()
+    {
+      var m = GetMinimalBuilder().WithDate("170923").Build();
+      Assert.AreEqual(new DateTime(2017,9,23), m.Date);
+    }
+
+    [Test]
     public void TestWithoutDate()
     {
       var m = GetMinimalBuilder().Build();

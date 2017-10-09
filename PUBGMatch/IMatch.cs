@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PUBGstats.Match
 {
@@ -13,7 +14,8 @@ namespace PUBGstats.Match
     GamePerspective Perspective { get; }
     string Lesson { get; }
     DateTime? Date { get; }
-    int Rating { get; }
+    int? Rating { get; }
     int? Season { get; }
+    List<IPartner> Partners { get; }
   }
 }

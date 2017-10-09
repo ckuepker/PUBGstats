@@ -17,5 +17,7 @@ namespace PUBGstats.Match.Builder
     IMatchBuilder WithDate(DateTime? date);
     IMatchBuilder WithDate(string date);
     IMatchBuilder WithSeason(int season);
+    IMatchBuilder WithPartner(int partner, string name);
+    IMatchBuilder WithPartnerKills(int partner, int kills);
   }
 }

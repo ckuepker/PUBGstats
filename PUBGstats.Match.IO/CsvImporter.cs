@@ -10,13 +10,17 @@ namespace PUBGstats.Match.IO
   {
     private readonly GameMode _mode;
     private readonly GamePerspective _perspective;
+    private readonly int _season;
+    private readonly Func<IMatchBuilder, string, IMatchBuilder>[] _propertyMap;
 
     private ILog _log = LogManager.GetLogger(typeof(CsvImporter).FullName);
 
-    public CsvImporter(GameMode mode, GamePerspective perspective)
+    public CsvImporter(GameMode mode, GamePerspective perspective, int season, Func<IMatchBuilder, string ,IMatchBuilder>[] propertyMap)
     {
       _mode = mode;
       _perspective = perspective;
+      _season = season;
+      _propertyMap = propertyMap;
     }
 
     public IMatch Import(string input)
@@ -26,94 +30,16 @@ namespace PUBGstats.Match.IO
       p.Delimiters = new[] {","};
       p.HasFieldsEnclosedInQuotes = true;
       string[] fields = p.ReadFields();
-      int i;
-      if (fields.Length < 10 || (!string.IsNullOrEmpty(fields[0]) && !int.TryParse(fields[0], out i)))
+      if (fields == null || fields.Length != _propertyMap.Length)
       {
-        return null;
+        throw new ArgumentException(string.Format("CSV line contains incorrect number of expected fields: Expected {0} but contains {1}", _propertyMap.Length, fields != null ? fields.Length : 0));
       }
-      int id, kills, rank, score, rating;
-      if (!int.TryParse(fields[0], out id))
+      IMatchBuilder builder = new MatchBuilder().WithSeason(_season).WithMode(_mode).WithPerspective(_perspective);
+      for (int i = 0; i < fields.Length; i++)
       {
-        id = 0;
-      }
-      if (!int.TryParse(fields[3], out kills))
-      {
-        kills = 0;
-      }
-      if (!int.TryParse(fields[4], out rank))
-      {
-        rank = 0;
-      }
-      if (!int.TryParse(fields[5], out score))
-      {
-        score = 0;
-      }
-      if (!int.TryParse(fields[6], out rating))
-      {
-        rating = 0;
-      }
-      DateTime? date = null;
-      date = GetDateTime(fields[1]);
-      
-
-      IMatchBuilder mb = new MatchBuilder();
-
-      mb.WithPerspective(_perspective)
-        .WithMode(_mode)
-        .WithId(id)
-        .WithKills(kills)
-        .WithRank(rank)
-        .WithScore(score)
-        .WithDeathCause(fields[9])
-        .WithLesson(fields[10])
-        .WithDate(date)
-        .WithRating(rating);
-
-      return mb.Build();
-    }
-
-    private DateTime? GetDateTime(string s)
-    {
-      int offset = 0;
-      int year;
-      if (s.Length == 8)
-      {
-        offset += 2;
-        if (!int.TryParse(s.Substring(0, 4), out year))
-        {
-          _log.Info(string.Format("Cannot extract year from date string: {0}",s));
-          return null;
-        }
-      }
-      else if (s.Length == 6)
-      {
-        if (!int.TryParse(s.Substring(0,2), out year))
-        {
-          _log.Info(string.Format("Cannot extract year from date string: {0}", s));
-          return null;
-        }
-        year += 2000;
-      }
-      else
-      {
-        _log.Info(string.Format("Cannot parse match date from CSV because it is not formatted as [YY]YYMMDD: {0}", s));
-        return null;
-      }
-
-      int month;
-      if (!int.TryParse(s.Substring(offset + 2, 2), out month))
-      {
-        _log.Info(string.Format("Cannot extract month from date string: {0}", s));
-        return null;
-      }
-      int day;
-      if (!int.TryParse(s.Substring(offset + 4, 2), out day))
-      {
-        _log.Info(string.Format("Cannot extract day from date string: {0}", s));
-        return null;
-      }
-
-      return new DateTime(year,month,day);
+        builder = _propertyMap[i](builder, fields[i]);
+      }      
+      return builder.Build();
     }
   }
 }

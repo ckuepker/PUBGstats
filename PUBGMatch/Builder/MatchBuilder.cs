@@ -1,22 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using PUBGstats.Match;
 
 namespace PUBGstats.Match.Builder
 {
   public class MatchBuilder : IMatchBuilder
   {
-    private int _kills, _score, _rank, _rating;
+    private int _kills, _score, _rank;
     private GameMode _mode = GameMode.Solo;
     private GamePerspective _perspective = GamePerspective.FPP;
-    private string _cause = string.Empty;
+    private string _cause = null;
     private int _id = -1;
-    private string _lesson = string.Empty;
+    private string _lesson = null;
     private DateTime? _date = null;
     private int? _season = null;
+    private List<string> _partnerNames = null;
+    private List<int> _partnerKills = null;
+    private int? _rating;
 
     public IMatch Build()
     {
-      return new Match(_id, _mode, _perspective, _kills, _score, _rank, _date, _rating, _cause, _lesson, _season);
+      List<IPartner> partners = null;
+      if (_partnerNames != null && _partnerNames.Any() && _partnerKills != null && _partnerKills.Count == _partnerNames.Count)
+      {
+        partners = new List<IPartner>(_partnerNames.Count);
+        for (int i = 0; i < _partnerNames.Count; i++)
+        {
+          partners.Insert(i, new Partner(_partnerNames[i], _partnerKills[i]));
+        }
+      }
+      return new Match(_id, _mode, _perspective, _kills, _score, _rank, _date, _rating, _cause, _lesson, _season, partners);
     }
 
     public IMatchBuilder WithMode(GameMode mode)
@@ -57,7 +71,7 @@ namespace PUBGstats.Match.Builder
 
     public IMatchBuilder WithDeathCause(string cause)
     {
-      _cause = cause;
+      _cause = string.IsNullOrEmpty(cause) ? null : cause;
       return this;
     }
 
@@ -69,7 +83,7 @@ namespace PUBGstats.Match.Builder
 
     public IMatchBuilder WithLesson(string lesson)
     {
-      _lesson = lesson;
+      _lesson = string.IsNullOrEmpty(lesson) ? null : lesson;
       return this;
     }
 
@@ -88,31 +102,31 @@ namespace PUBGstats.Match.Builder
         offset += 2;
         if (!int.TryParse(date.Substring(0, 4), out year))
         {
-          return null;
+          return this;
         }
       }
       else if (date.Length == 6)
       {
         if (!int.TryParse(date.Substring(0, 2), out year))
         {
-          return null;
+          return this;
         }
         year += 2000;
       }
       else
       {
-        return null;
+        return this;
       }
 
       int month;
       if (!int.TryParse(date.Substring(offset + 2, 2), out month))
       {
-        return null;
+        return this;
       }
       int day;
       if (!int.TryParse(date.Substring(offset + 4, 2), out day))
       {
-        return null;
+        return this;
       }
 
       _date = new DateTime(year, month, day);
@@ -122,6 +136,26 @@ namespace PUBGstats.Match.Builder
     public IMatchBuilder WithSeason(int season)
     {
       _season = season;
+      return this;
+    }
+
+    public IMatchBuilder WithPartner(int partner, string name)
+    {
+      if (_partnerNames == null)
+      {
+        _partnerNames = new List<string>(3);
+      }
+      _partnerNames.Insert(partner, name);
+      return this;
+    }
+
+    public IMatchBuilder WithPartnerKills(int partner, int kills)
+    {
+      if (_partnerKills == null)
+      {
+        _partnerKills = new List<int>(3);
+      }
+      _partnerKills.Insert(partner, kills);
       return this;
     }
   }

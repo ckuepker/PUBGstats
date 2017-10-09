@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using PUBGstats.Match.Builder;
 
 namespace PUBGstats.Match.IO.Batch
 {
@@ -17,7 +18,7 @@ namespace PUBGstats.Match.IO.Batch
 
     public IEnumerable<IMatch> Import(string source)
     {
-      IMatchImporter<string> importer = new CsvImporter(_mode, _perspective);
+      IMatchImporter<string> importer = new CsvImporter(_mode, _perspective, -1, new Func<IMatchBuilder, string, IMatchBuilder>[] {});
       IList<IMatch> matches = new List<IMatch>();
       using (StreamReader fileReader = new StreamReader(source))
       {

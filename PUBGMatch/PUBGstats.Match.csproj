@@ -43,9 +43,11 @@
     <Compile Include="Builder\IMatchBuilder.cs" />
     <Compile Include="Builder\MatchBuilder.cs" />
     <Compile Include="IMatch.cs" />
+    <Compile Include="IPartner.cs" />
     <Compile Include="Match.cs" />
     <Compile Include="GameMode.cs" />
     <Compile Include="GamePerspective.cs" />
+    <Compile Include="Partner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
